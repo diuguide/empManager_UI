@@ -2,7 +2,6 @@ import { Form, Button, FormControl, FloatingLabel } from "react-bootstrap";
 import { getAllEmployees } from "../utilities/remote-api";
 import { useDispatch } from "react-redux";
 import {
-  dataState,
   dataLoading,
   dataLoaded,
   dataTransfer,

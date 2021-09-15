@@ -1,15 +1,23 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
-const EmployeeCard = ({ key, emp}) => {
-    console.log(emp);
-    return(
-        <Container>
-            <Row key={emp}>
-                <Col><h1>Test EMP CARD</h1></Col>
-            </Row>
-        </Container>
-    )
-
-}
+const EmployeeCard = ({ emp }) => {
+  console.log(emp);
+  return (
+    <>
+        <Row>
+          <Col>
+            <div className="emp-name">
+              {emp.first_name} {emp.last_name}
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div className="emp-phone">{emp.phone_number != null ? emp.phone_number : "Not Available"}</div>
+          </Col>
+        </Row>
+     </>
+  );
+};
 
 export default EmployeeCard;

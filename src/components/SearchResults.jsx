@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { dataState } from "../state/slices/dataSlice";
 import EmployeeCard from "./EmployeeCard";
@@ -6,15 +6,14 @@ const SearchResults = () => {
   const state = useSelector(dataState);
 
   return (
-    <Container fluid>
       <Row style={{ height: "100%" }} className="d-flex justify-content-center">
-        <Col className="d-flex flex-wrap border">
+        <Col>
           {state.isLoaded && (
-            <Row>
+            <Row className="d-flex justify-content-around">
               {state.empData.map((emp, index) => {
                 return (
-                  <Col>
-                    <EmployeeCard key={index} emp={emp} />
+                  <Col className="border shadow p-2 m-2 emp-card" lg={3} md={5} sm={11} key={index} >
+                    <EmployeeCard emp={emp} />
                   </Col>
                 );
               })}
@@ -22,7 +21,6 @@ const SearchResults = () => {
           )}
         </Col>
       </Row>
-    </Container>
   );
 };
 
