@@ -10,7 +10,7 @@ const SearchResults = () => {
         <Col>
           {state.isLoaded && (
             <Row className="d-flex justify-content-around">
-              {state.empData.map((emp, index) => {
+              {state.searchData.map((emp, index) => {
                 return (
                   <Col className="border shadow p-2 m-2 emp-card" lg={3} md={5} sm={11} key={index} >
                     <EmployeeCard emp={emp} />
