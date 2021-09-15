@@ -1,26 +1,20 @@
-import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <Row>
-      <Col
-        style={{ width: "100vw", height: "50px" }}
-        className="bg-dark text-light"
-      >
-        <ul className="nav-main">
-          <Link className="nav-link" to="/search">
-            Search
-          </Link>
-          <Link className="nav-link" to="dashBoard">
-            Dashboard
-          </Link>
-          <Link className="nav-link" to="/admin">
-            Admin
-          </Link>
-        </ul>
-      </Col>
-    </Row>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/dashBoard">Search</Nav.Link>
+            <Nav.Link href="/admin">Admin Dashboard</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

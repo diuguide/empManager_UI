@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
 import Main from "./components/Main";
 import Navigation from "./components/Navigation";
 import "./scss/App.scss";
@@ -9,6 +10,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/" component={Main} />
+        <Route path="/dashBoard" component={Dashboard} />
       </Switch>
     </Router>
   );
