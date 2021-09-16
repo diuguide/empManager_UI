@@ -1,7 +1,7 @@
 import { Form, Button, FormControl, FloatingLabel } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterData } from "../state/slices/dataSlice";
+import { dataLoading, dataLoaded, filterData } from "../state/slices/dataSlice";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,6 @@ const SearchBar = () => {
   const handleChange = (e) => {
     let { name, value } = e.target;
     setSearch({ ...search, [name]: value });
-    console.log(search);
   };
 
   const handleClick = () => {

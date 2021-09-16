@@ -1,16 +1,16 @@
 import { Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { dataState } from "../state/slices/dataSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { dataState, dataLoading } from "../state/slices/dataSlice";
 import EmployeeCard from "./EmployeeCard";
 import { useHistory } from "react-router";
 
 const SearchResults = () => {
   const state = useSelector(dataState);
   const history = useHistory();
+  const dispatch = useDispatch();
   const handleClick = (e) => {
     const { id } = e.target;
-    console.log("id", id);
-    console.log("current target", e.target);
+    dispatch(dataLoading());
     history.push(`/empdetail/${id}`);
   };
   return (
