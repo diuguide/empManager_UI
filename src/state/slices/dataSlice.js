@@ -26,22 +26,24 @@ export const dataSlice = createSlice({
       switch (action.payload.filter) {
         case "employee": {
           state.searchData = state.empData.filter(
-            (emp) => emp.employee_id == action.payload.field
+            (emp) => emp.employee_id === parseInt(action.payload.field)
           );
           break;
         }
         case "department": {
           state.searchData = state.empData.filter(
-            (emp) => emp.department_id == action.payload.field
+            (emp) => emp.department_id === parseInt(action.payload.field)
           );
           break;
         }
         case "job": {
           state.searchData = state.empData.filter(
-            (emp) => emp.job_id == action.payload.field
+            (emp) => emp.job_id === action.payload.field
           );
           break;
         }
+        default:
+          break;
       }
     },
   },

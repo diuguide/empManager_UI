@@ -7,7 +7,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState({
     field: "",
-    filter: "",
+    filter: "employee",
   });
 
   const handleChange = (e) => {

@@ -1,8 +1,25 @@
 .emp-card:hover {
-  transform: scale(1.2, 1.2);
+  transform: scale(1.05, 1.05);
   border: 3px solid lightgreen;
 }
 
 .emp-phone {
     font-size: 12px;
+}
+
+.emp-button {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 60px;
+  border: 1px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color, color 0.25s ease-in-out;
+}
+
+.emp-button:hover{
+  background-color: lightslategrey;
+  color: white;
 }
