@@ -1,17 +1,22 @@
 import { Row, Container, Col } from "react-bootstrap";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { dataState, dataLoading, dataLoaded } from "../state/slices/dataSlice";
-import { useEffect, useRef } from "react";
+import { dataState, dataLoaded } from "../state/slices/dataSlice";
+import { useEffect, useRef, useState } from "react";
+import EditModal from "./EditModal";
 
 const EmployeeDetail = () => {
   let params = useParams();
   const state = useSelector(dataState);
   const emp = useRef();
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   useEffect(() => {
     findEmployee(params.id);
-  }, []);
+  });
   const findEmployee = (id) => {
     let ar = state.searchData.filter((emp) => emp.employee_id === parseInt(id));
     emp.current = ar[0];
@@ -27,7 +32,7 @@ const EmployeeDetail = () => {
   return (
     <Container fluid>
       <Row className="d-flex justify-content-center">
-        <Col className="border rounded mt-4" lg={5} md={9} xs={10}>
+        <Col className="border rounded mt-4 pb-2" lg={5} md={5} xs={10}>
           {state.isLoaded && (
             <>
               <Row>
@@ -36,8 +41,10 @@ const EmployeeDetail = () => {
                     {emp.current.first_name} {emp.current.last_name}
                   </div>
                 </Col>
-                <Col>
-                  <div className="empDetail-id">{emp.current.employee_id}</div>
+              </Row>
+              <Row>
+                   <Col>
+                  <div className="empDetail-id">#{emp.current.employee_id}</div>
                 </Col>
               </Row>
               <Row>
@@ -71,12 +78,21 @@ const EmployeeDetail = () => {
                     </li>
                   </ul>
                 </Col>
-                <Col></Col>
+                
               </Row>
+              <Row>
+                  <Col>
+                  <div onClick={() => history.goBack()}className="back-btn">Back</div>
+                  </Col>
+                  <Col>
+                  <div onClick={handleShow} className="edit-record">Edit Record</div>
+                  </Col>
+               </Row>   
             </>
           )}
         </Col>
       </Row>
+      <EditModal handleClose={handleClose} show={show}/>                 
     </Container>
   );
 };

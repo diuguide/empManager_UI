@@ -1,7 +1,7 @@
 import { Form, Button, FormControl, FloatingLabel } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { dataLoading, dataLoaded, filterData } from "../state/slices/dataSlice";
+import { filterData } from "../state/slices/dataSlice";
 
 const SearchBar = () => {
   const dispatch = useDispatch();

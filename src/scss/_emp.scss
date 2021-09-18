@@ -4,11 +4,11 @@
 }
 
 .emp-phone {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .emp-button {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 25px;
@@ -19,36 +19,66 @@
   transition: background-color, color 0.25s ease-in-out;
 }
 
-.emp-button:hover{
+.emp-button:hover {
   background-color: lightslategrey;
   color: white;
 }
+.empDetail-header {
+  border-bottom: 2px solid black;
+}
 .empDetail-name {
   font-size: 30px;
-
 }
 .empDetail-id {
   
-  text-align:left;
-  float: right;
 }
-.empDetail-header {
- 
-}
+
 .empDetails-details {
   list-style-type: none;
-  
 }
 .details {
   font-size: 10px;
-  float:right;
-  clear:both; 
+  float: right;
+  clear: both;
 }
 .empDetails-data {
   list-style-type: none;
 }
 .dataaa {
-  font-size:10px;
+  font-size: 10px;
   float: left;
-  clear:both;
+  clear: both;
+}
+
+.back-btn {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 60px;
+  border: 1px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color, color 0.25s ease-in-out;
+}
+.back-btn:hover {
+  background-color: lightslategrey;
+  color: white;
+}
+
+.edit-record {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 110px;
+  border: 1px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color, color 0.25s ease-in-out;
+}
+.edit-record:hover {
+  background-color: lightslategrey;
+  color: white;
 }

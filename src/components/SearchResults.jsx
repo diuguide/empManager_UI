@@ -14,10 +14,10 @@ const SearchResults = () => {
     history.push(`/empdetail/${id}`);
   };
   return (
-    <Row style={{ height: "100%" }} className="d-flex justify-content-center">
+    <Row style={{ height: "100%" }} className="d-inline-flex justify-content-center">
       <Col>
         {state.isLoaded && (
-          <Row className="d-flex justify-content-start">
+          <Row className="d-inline-flex justify-content-center">
             {state.searchData.map((emp, index) => {
               return (
                 <Col
