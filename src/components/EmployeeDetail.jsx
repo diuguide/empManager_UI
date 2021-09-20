@@ -92,7 +92,7 @@ const EmployeeDetail = () => {
           )}
         </Col>
       </Row>
-      <EditModal handleClose={handleClose} show={show}/>                 
+      <EditModal handleClose={handleClose} show={show} emp={emp.current} />                 
     </Container>
   );
 };
