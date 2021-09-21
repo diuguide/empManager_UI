@@ -1,32 +1,17 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 const EditModal = ({ handleClose, show, emp }) => {
-
-  const empRecord = useRef();
-  useEffect(() => {
-    empRecord.current = {
-      fname: emp.first_name,
-      lname: emp.last_name,
-      email: emp.email,
-      phone_number: emp.phone_number,
-      job_id: emp.job_id,
-      salary: emp.salary,
-      manager_id: emp.manager_id,
-      department_id: emp.department_id,
-    }
-  })
   const [formCreds, setFormCreds] = useState({
-    fname: "",
-    lname: "",
-    email: "",
-    phone_number: "",
-    job_id: "",
-    salary: "",
-    manager_id: "",
-    department_id: "",
+    fname: emp.first_name,
+    lname: emp.last_name,
+    email: emp.email,
+    phone_number: emp.phone_number,
+    job_id: emp.job_id,
+    salary: emp.salary,
+    manager_id: emp.manager_id,
+    department_id: emp.department_id,
   });
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,9 +19,11 @@ const EditModal = ({ handleClose, show, emp }) => {
   };
 
   const handleSubmit = () => {
-    console.log("form Creds: ", formCreds);
+    console.log("form Creds:")
   }
   return (
+    <>
+    {console.log(emp)}
     <Modal show={show} onHide={handleClose}>
       <Form>
         <Form.Group className="m-3">
@@ -122,6 +109,7 @@ const EditModal = ({ handleClose, show, emp }) => {
         </Button>
       </Modal.Footer>
     </Modal>
+    </>
   );
 };
 

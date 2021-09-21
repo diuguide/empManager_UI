@@ -5,7 +5,8 @@ import { dataState, dataLoaded } from "../state/slices/dataSlice";
 import { useEffect, useRef, useState } from "react";
 import EditModal from "./EditModal";
 
-const EmployeeDetail = () => {
+const EmployeeDetail = ({ empData }) => {
+ 
   let params = useParams();
   const state = useSelector(dataState);
   const emp = useRef();
@@ -16,6 +17,7 @@ const EmployeeDetail = () => {
   const handleShow = () => setShow(true);
   useEffect(() => {
     findEmployee(params.id);
+    console.log("empdetail: use effect called");
   });
   const findEmployee = (id) => {
     let ar = state.searchData.filter((emp) => emp.employee_id === parseInt(id));
@@ -31,6 +33,7 @@ const EmployeeDetail = () => {
 
   return (
     <Container fluid>
+      {console.log("emp detail rendered:", emp.current)}
       <Row className="d-flex justify-content-center">
         <Col className="border rounded mt-4 pb-2" lg={5} md={5} xs={10}>
           {state.isLoaded && (
@@ -92,7 +95,7 @@ const EmployeeDetail = () => {
           )}
         </Col>
       </Row>
-      <EditModal handleClose={handleClose} show={show} emp={emp.current} />                 
+      {/* <EditModal handleClose={handleClose} show={show} emp={emp.current} />                  */}
     </Container>
   );
 };
