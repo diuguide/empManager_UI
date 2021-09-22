@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { dataState, dataLoading } from "../state/slices/dataSlice";
+import { dataState, dataLoading, toggleReload } from "../state/slices/dataSlice";
 import EmployeeCard from "./EmployeeCard";
 import { useHistory } from "react-router";
 
@@ -10,6 +10,7 @@ const SearchResults = () => {
   const dispatch = useDispatch();
   const handleClick = (e) => {
     const { id } = e.target;
+    dispatch(toggleReload());
     dispatch(dataLoading());
     history.push(`/empdetail/${id}`);
   };

@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   empData: [],
-  isLoading: false,
+  isLoading: true,
   isLoaded: false,
   searchData: [],
+  reloadToggle: false
 };
 
 export const dataSlice = createSlice({
@@ -46,10 +47,13 @@ export const dataSlice = createSlice({
           break;
       }
     },
+    toggleReload: (state) => {
+      state.reloadToggle = !state.reloadToggle;
+    }
   },
 });
 
-export const { dataLoading, dataLoaded, dataTransfer, filterData } =
+export const { toggleReload, dataLoading, dataLoaded, dataTransfer, filterData } =
   dataSlice.actions;
 
 export const dataState = (state) => state.data;
