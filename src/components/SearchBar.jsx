@@ -16,7 +16,6 @@ const SearchBar = () => {
   };
 
   const handleClick = () => {
-    localStorage.removeItem("lastId");
     dispatch(filterData({ field: search.field, filter: search.filter }));
   };
   return (
